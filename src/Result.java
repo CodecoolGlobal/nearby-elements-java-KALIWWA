@@ -1,17 +1,17 @@
 public class Result {
-    private int[] tablica;
+    private int[] board;
 
-    public Result(int[] tablica) {
-        this.tablica = tablica;
+    public Result(int[] board) {
+        this.board = board;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append('[');
-        for (int i = 0; i < tablica.length; i++) {
-            builder.append(tablica[i]);
-            if (i < tablica.length -1) {
+        for (int i = 0; i < board.length; i++) {
+            builder.append(board[i]);
+            if (i < board.length -1) {
                 builder.append(", ");
             }
         }
