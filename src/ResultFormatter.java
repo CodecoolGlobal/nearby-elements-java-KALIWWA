@@ -1,7 +1,7 @@
-public class Result {
+public class ResultFormatter {
     private int[] board;
 
-    public Result(int[] board) {
+    public ResultFormatter(int[] board) {
         this.board = board;
     }
 

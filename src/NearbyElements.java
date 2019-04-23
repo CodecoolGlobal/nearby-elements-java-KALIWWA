@@ -9,9 +9,9 @@ public class NearbyElements {
             {321, 320, 32, 3, 41241, -11, -12, -13, -66, -688}
     };
 
-    public Result nearby(int listIndex, int elementIndex, int range) {
+    public ResultFormatter nearby(int listIndex, int elementIndex, int range) {
 
-        if (range >= 0) {
+        if (range > 0) {
             // new list, because can add elements and don't have to set list size
             List<Integer> resultList = new ArrayList<>();
             // set place in memory for array
@@ -44,7 +44,7 @@ public class NearbyElements {
                 resultArray[j] = resultList.get(j);
             }
 
-            return new Result(resultArray);
+            return new ResultFormatter(resultArray);
         }
         return null;
     }
