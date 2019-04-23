@@ -11,42 +11,42 @@ public class NearbyElements {
 
     public Result nearby(int listIndex, int elementIndex, int range) {
 
-        // new list, because can add elements and don't have to set list size
-        List<Integer> resultList = new ArrayList<>();
-        // set place in memory for array
-        int[] resultArray;
-
-        if (range < 0) {
-            range = 0;
-        }
-
-        // startPoint has to be minimum 1st element
-        int startPoint = elementIndex - range;
-        if (startPoint < 0) {
-            startPoint = 0;
-        }
-
-        // endPoint has to be minimum last element
-        int endPoint = elementIndex + range;
-        if (endPoint >= multi[listIndex].length) {
-            endPoint = multi[listIndex].length - 1;
-        }
+        if (range >= 0) {
+            // new list, because can add elements and don't have to set list size
+            List<Integer> resultList = new ArrayList<>();
+            // set place in memory for array
+            int[] resultArray;
 
 
-        for (int i = startPoint; i <= endPoint; i++) {
-            if (i != elementIndex) {
-                resultList.add(multi[listIndex][i]);
+            // startPoint has to be minimum 1st element
+            int startPoint = elementIndex - range;
+            if (startPoint < 0) {
+                startPoint = 0;
             }
+
+            // endPoint has to be minimum last element
+            int endPoint = elementIndex + range;
+            if (endPoint >= multi[listIndex].length) {
+                endPoint = multi[listIndex].length - 1;
+            }
+
+
+            for (int i = startPoint; i <= endPoint; i++) {
+                if (i != elementIndex) {
+                    resultList.add(multi[listIndex][i]);
+                }
+            }
+
+            // new array of integers with resultList number of elements
+            resultArray = new int[resultList.size()];
+
+            for (int j = 0; j < resultArray.length; j++) {
+                resultArray[j] = resultList.get(j);
+            }
+
+            return new Result(resultArray);
         }
-
-        // new array of integers with resultList number of elements
-        resultArray = new int[resultList.size()];
-
-        for (int j = 0; j < resultArray.length; j++) {
-            resultArray[j] = resultList.get(j);
-        }
-
-        return new Result(resultArray);
+        return null;
     }
 
 }
